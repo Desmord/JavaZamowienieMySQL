@@ -10,9 +10,9 @@
 	<children>
 		<VBox prefHeight="720.0" prefWidth="1100.0">
 			<children>
-				<AnchorPane prefHeight="100.0" prefWidth="1100.0">
+				<AnchorPane prefHeight="70.0" prefWidth="1100.0">
 					<children>
-						<HBox prefHeight="100.0" prefWidth="1100.0">
+						<HBox prefHeight="70.0" prefWidth="1100.0">
 							<children>
 								<Button fx:id="orderButton" mnemonicParsing="false" prefWidth="100.0" text="Zamówienia">
 									<HBox.margin>
