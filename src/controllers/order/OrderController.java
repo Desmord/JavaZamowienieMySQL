@@ -3,6 +3,8 @@ package controllers.order;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -47,9 +49,10 @@ public class OrderController implements Initializable {
 		System.out.println("Inicjacja Zamowienia");
 
 		hideAllMinorPanes();
-		
+
 		orderTableController.displayTable(true);
 
+		setButtonsEvetns();
 	}
 
 	public void displayPane(boolean display) {
@@ -64,6 +67,90 @@ public class OrderController implements Initializable {
 		newOrderController.displayPane(false);
 		editOrderController.displayPane(false);
 		searchOrderController.displayPane(false);
+
+	}
+
+	private void setButtonsEvetns() {
+
+		setShowOrderButtonClickEvent();
+		 setSearchOrderButtonClickEvent();
+		 setNewOrderButtonClickEvent();
+		 setEditOrderButtonClickEvent();
+		 setDeleteOrderButtonClickEvent();
+
+	}
+
+	private void setShowOrderButtonClickEvent() {
+
+		showOrdersButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+
+				hideAllMinorPanes();
+				orderTableController.displayTable(true);
+
+			}
+		});
+
+	}
+
+	private void setSearchOrderButtonClickEvent() {
+
+		searchButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+
+				hideAllMinorPanes();
+				searchOrderController.displayPane(true);
+
+			}
+		});
+
+	}
+
+	private void setNewOrderButtonClickEvent() {
+
+		insertButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+
+				hideAllMinorPanes();
+				newOrderController.displayPane(true);
+
+			}
+		});
+
+	}
+
+	private void setEditOrderButtonClickEvent() {
+
+		editButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+
+				hideAllMinorPanes();
+				editOrderController.displayPane(true);
+
+			}
+		});
+
+	}
+
+	private void  setDeleteOrderButtonClickEvent() {
+
+		deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+			
+				System.out.println("Usuwanie");
+
+			}
+		});
 
 	}
 
