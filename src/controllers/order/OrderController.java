@@ -1,14 +1,19 @@
 package controllers.order;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import application.ApplicationData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
 public class OrderController implements Initializable {
@@ -45,7 +50,7 @@ public class OrderController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		hideAllMinorPanes();
 
 		orderTableController.displayTable(true);
@@ -71,10 +76,10 @@ public class OrderController implements Initializable {
 	private void setButtonsEvetns() {
 
 		setShowOrderButtonClickEvent();
-		 setSearchOrderButtonClickEvent();
-		 setNewOrderButtonClickEvent();
-		 setEditOrderButtonClickEvent();
-		 setDeleteOrderButtonClickEvent();
+		setSearchOrderButtonClickEvent();
+		setNewOrderButtonClickEvent();
+		setEditOrderButtonClickEvent();
+		setDeleteOrderButtonClickEvent();
 
 	}
 
@@ -138,14 +143,48 @@ public class OrderController implements Initializable {
 
 	}
 
-	private void  setDeleteOrderButtonClickEvent() {
+	private void setDeleteOrderButtonClickEvent() {
 
 		deleteButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-			
+
 				System.out.println("Usuwanie");
+
+				ApplicationData appData = ApplicationData.getInstance();
+
+				try {
+					Class.forName(appData.getDriver());
+					Connection conn = DriverManager.getConnection(appData.getDbPath(), "root", null);
+
+					Statement statement = conn.createStatement();
+					final String sqlQuery = "SELECT * FROM zamowienia";
+					ResultSet resultSet = statement.executeQuery(sqlQuery);
+
+					String data = null;
+					while (resultSet.next()) {
+						System.out.println(resultSet.getString(1) + " " + resultSet.getString(2));
+					}
+
+					if (statement != null) {
+						statement.close();
+					}
+					if (resultSet != null) {
+						resultSet.close();
+					}
+					if (conn != null) {
+						conn.close();
+					}
+
+				} catch (SQLException e) {
+
+					System.out.println("Blad sql");
+					System.out.println(e);
+
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
 
 			}
 		});
