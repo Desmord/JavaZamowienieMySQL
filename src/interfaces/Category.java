@@ -2,14 +2,16 @@ package interfaces;
 
 import java.util.List;
 
+import dataClasess.CategoryData;
+
 public interface Category {
 
-	List<Category> findAll();
-	List<Category> findById();
-	List<Category> findByName();
+	List<CategoryData> findAll();
+	List<CategoryData> findById();
+	List<CategoryData> findByName();
 	
-	boolean insertProduct(Category category);
-	boolean updateProduct(Category category);
-	boolean deleteProduct(Category category);
+	boolean insertProduct(CategoryData category);
+	boolean updateProduct(CategoryData category);
+	boolean deleteProduct(CategoryData category);
 	
 }

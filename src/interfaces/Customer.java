@@ -2,15 +2,17 @@ package interfaces;
 
 import java.util.List;
 
+import dataClasess.CustomerData;
+
 public interface Customer {
 	
-	List<Customer> findAll();
-	List<Customer> findById();
-	List<Customer> findByFirstName();
-	List<Customer> findByLastName();
-	List<Customer> findByTel();
+	List<CustomerData> findAll();
+	List<CustomerData> findById();
+	List<CustomerData> findByFirstName();
+	List<CustomerData> findByLastName();
+	List<CustomerData> findByTel();
 	
-	boolean insertProduct(Customer customer);
-	boolean updateProduct(Customer customer);
-	boolean deleteProduct(Customer customer);
+	boolean insertProduct(CustomerData customer);
+	boolean updateProduct(CustomerData customer);
+	boolean deleteProduct(CustomerData customer);
 }

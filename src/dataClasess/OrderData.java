@@ -1,14 +1,13 @@
 package dataClasess;
 
-public class Order {
+public class OrderData {
 
 	private int id;
 	private int customerId;
 	private int discount;
 	private String totalCost;
 
-	public Order(int id, int customerId, int discount, String totalCost) {
-		super();
+	public OrderData(int id, int customerId, int discount, String totalCost) {
 		this.id = id;
 		this.customerId = customerId;
 		this.discount = discount;

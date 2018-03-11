@@ -1,6 +1,6 @@
 package dataClasess;
 
-public class Product {
+public class ProductData {
 
 	private int id;
 	private String name;
@@ -9,7 +9,7 @@ public class Product {
 	private String discount;
 	private int categoryId;
 
-	public Product(int id, String name, String price, int quantity, String discount, int categoryId) {
+	public ProductData(int id, String name, String price, int quantity, String discount, int categoryId) {
 		super();
 		this.id = id;
 		this.name = name;

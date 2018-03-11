@@ -1,14 +1,12 @@
 package controllers.order;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import application.ApplicationData;
+import DAO.OrderDao;
+import dataClasess.OrderData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 
 public class OrderController implements Initializable {
 
+	private OrderDao orderDao = new OrderDao();
+	
 	@FXML
 	private TableViewController orderTableController;
 
@@ -152,37 +152,18 @@ public class OrderController implements Initializable {
 
 				System.out.println("Usuwanie");
 
-				try {
-					Class.forName(ApplicationData.getDriver());
-					Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), "root", null);
+				List<OrderData> lista = new ArrayList<OrderData>();
 
-					Statement statement = conn.createStatement();
-					final String sqlQuery = "SELECT * FROM zamowienia";
-					ResultSet resultSet = statement.executeQuery(sqlQuery);
-
-					while (resultSet.next()) {
-						System.out.println(resultSet.getString(1) + " " + resultSet.getString(2));
-					}
-
-					if (statement != null) {
-						statement.close();
-					}
-					if (resultSet != null) {
-						resultSet.close();
-					}
-					if (conn != null) {
-						conn.close();
-					}
-
-				} catch (SQLException e) {
-
-					System.out.println("Blad sql");
-					System.out.println(e);
-
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
+				lista = orderDao.findAll();
+				
+				for(OrderData obj: lista) {
+					System.out.println("Id: "+obj.getId());
+					System.out.println("Klient: "+obj.getCustomerId());
+					System.out.println("Rabat klienta: "+obj.getDiscount());
+					System.out.println("Koszt : "+obj.getTotalCost());
+					System.out.println("-------------------------------");
 				}
-
+				
 			}
 		});
 
