@@ -152,17 +152,14 @@ public class OrderController implements Initializable {
 
 				System.out.println("Usuwanie");
 
-				ApplicationData appData = ApplicationData.getInstance();
-
 				try {
-					Class.forName(appData.getDriver());
-					Connection conn = DriverManager.getConnection(appData.getDbPath(), "root", null);
+					Class.forName(ApplicationData.getDriver());
+					Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), "root", null);
 
 					Statement statement = conn.createStatement();
 					final String sqlQuery = "SELECT * FROM zamowienia";
 					ResultSet resultSet = statement.executeQuery(sqlQuery);
 
-					String data = null;
 					while (resultSet.next()) {
 						System.out.println(resultSet.getString(1) + " " + resultSet.getString(2));
 					}
