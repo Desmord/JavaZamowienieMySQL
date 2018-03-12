@@ -151,18 +151,8 @@ public class OrderController implements Initializable {
 			public void handle(ActionEvent arg0) {
 
 				System.out.println("Usuwanie");
-//
-//				List<OrderData> lista = new ArrayList<OrderData>();
-//
-//				lista = orderDao.findAll();
-//				
-//				for(OrderData obj: lista) {
-//					System.out.println("Id: "+obj.getId());
-//					System.out.println("Klient: "+obj.getCustomerId());
-//					System.out.println("Rabat klienta: "+obj.getDiscount());
-//					System.out.println("Koszt : "+obj.getTotalCost());
-//					System.out.println("-------------------------------");
-//				}
+
+				orderTableController.displayOrdersList(orderDao.findAll());
 				
 			}
 		});
