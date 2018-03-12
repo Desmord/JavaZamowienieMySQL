@@ -4,13 +4,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="controllers.order.TableViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.order.TableViewController">
    <children>
       <TableView fx:id="orderTableView" prefHeight="580.0" prefWidth="900.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="orderNumberTableColumn" prefWidth="225.0" text="Numer Zamówienia" />
+          <TableColumn fx:id="customerTableColumn" prefWidth="325.0" text="Klient" />
+            <TableColumn fx:id="discountTableColumn" prefWidth="150.0" text="Rabat" />
+            <TableColumn fx:id="totalCostTableColumn" prefWidth="200.0" text="Koszt Całkowity" />
         </columns>
       </TableView>
    </children>
