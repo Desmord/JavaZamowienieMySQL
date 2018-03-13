@@ -1,7 +1,6 @@
 package controllers.order;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -12,12 +11,16 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 public class OrderController implements Initializable {
 
 	private OrderDao orderDao = new OrderDao();
-	
+
+	@FXML
+	private Label infoLabel;
+
 	@FXML
 	private TableViewController orderTableController;
 
@@ -152,12 +155,25 @@ public class OrderController implements Initializable {
 
 				System.out.println("Usuwanie");
 
-				orderTableController.displayOrdersList(orderDao.findAll());
-				
+				List<OrderData> list = orderDao.findById(2);
+
+				if (list.size() == 0) {
+					infoLabel.setText("Nie znaleziono ¿andnych elementów.");
+
+				} else {
+					infoLabel.setText("");
+
+					// Wyszukianie wszystkich
+					// orderTableController.displayOrdersList(orderDao.findAll());
+
+					// Wyszukiwanie po id
+					// orderTableController.displayOrdersList(orderDao.findById(2));
+					
+					
+				}
 			}
 		});
 
 	}
 
-	
 }

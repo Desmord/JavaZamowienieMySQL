@@ -7,8 +7,8 @@ import dataClasess.OrderData;
 public interface Order {
 	
 	List<OrderData> findAll();
-	List<OrderData> findById();
-	List<OrderData> findByCustomerId();
+	List<OrderData> findById(int id);
+	List<OrderData> findByCustomerId(int id);
 	
 	boolean insertProduct(OrderData order);
 	boolean updateProduct(OrderData order);
