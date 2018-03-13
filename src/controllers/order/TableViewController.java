@@ -22,13 +22,13 @@ public class TableViewController implements Initializable {
 	private TableColumn<OrderData, String> orderNumberTableColumn;
 
 	@FXML
-	private TableColumn<ObservableList<String>, String> customerTableColumn;
+	private TableColumn<OrderData, String> customerTableColumn;
 
 	@FXML
-	private TableColumn<ObservableList<String>, String> discountTableColumn;
+	private TableColumn<OrderData, String> discountTableColumn;
 
 	@FXML
-	private TableColumn<ObservableList<String>, String> totalCostTableColumn;
+	private TableColumn<OrderData, String> totalCostTableColumn;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -39,31 +39,27 @@ public class TableViewController implements Initializable {
 		orderTableView.setVisible(display);
 	}
 
+	
+	/**
+	 * Displays data in the table
+	 * @param list of orders
+	 */
 	public void displayOrdersList(List<OrderData> list) {
 
-		System.out.println("Wyœwietlanie listy");
-		
+		final ObservableList<OrderData> data = FXCollections.observableArrayList();
+
 		for (OrderData obj : list) {
 
-			final ObservableList<OrderData> data = FXCollections.observableArrayList(
-					// new Person("Jacob", "Smith", "jacob.smith@example.com"),
-					// new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
-					// new Person("Ethan", "Williams", "ethan.williams@example.com"),
-					// new Person("Emma", "Jones", "emma.jones@example.com"),
-					// new Person("Michael", "Brown", "michael.brown@example.com")
-					new OrderData(obj.getId(), obj.getCustomerId(), obj.getDiscount(), obj.getTotalCost()));
-
-			orderNumberTableColumn.setCellValueFactory(new PropertyValueFactory<OrderData, String>("id"));
-
-			orderTableView.setItems(data);
-			
-			// System.out.println("Id: "+obj.getId());
-			// System.out.println("Klient: "+obj.getCustomerId());
-			// System.out.println("Rabat klienta: "+obj.getDiscount());
-			// System.out.println("Koszt : "+obj.getTotalCost());
-			// System.out.println("-------------------------------");
+			data.add(new OrderData(obj.getId(), obj.getCustomerId(), obj.getDiscount(), obj.getTotalCost()));
 
 		}
+
+		orderNumberTableColumn.setCellValueFactory(new PropertyValueFactory<OrderData, String>("id"));
+		customerTableColumn.setCellValueFactory(new PropertyValueFactory<OrderData, String>("customerId"));
+		discountTableColumn.setCellValueFactory(new PropertyValueFactory<OrderData, String>("discount"));
+		totalCostTableColumn.setCellValueFactory(new PropertyValueFactory<OrderData, String>("totalCost"));
+
+		orderTableView.setItems(data);
 
 	}
 
