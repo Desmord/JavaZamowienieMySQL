@@ -155,7 +155,7 @@ public class OrderController implements Initializable {
 
 				System.out.println("Usuwanie");
 
-				List<OrderData> list = orderDao.findByCustomerId(1);
+				List<OrderData> list = orderDao.findByCustomerId(2);
 
 				if (list.size() == 0) {
 					infoLabel.setText("Nie znaleziono ¿andnych elementów.");
