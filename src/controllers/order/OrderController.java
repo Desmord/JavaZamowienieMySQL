@@ -170,9 +170,16 @@ public class OrderController implements Initializable {
 					// orderTableController.displayOrdersList(orderDao.findById(2));
 
 					// Wyszukiwanie po idKlienta
-					// orderTableController.displayOrdersList(list);
+					// orderTableController.displayOrdersList(findByCustomerId(2));
 
-					orderTableController.displayOrdersList(list);
+					// Wstawianie danych
+					// orderDao.insertProduct(new OrderData(4,2,0,"0"));
+
+					// Uaktualnianie danych
+					// orderDao.updateProduct(4, new OrderData(4,1,0,"0"));
+
+					// Usuwanie danych
+					// orderDao.deleteProduct(3);
 
 				}
 			}

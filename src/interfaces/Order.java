@@ -11,7 +11,7 @@ public interface Order {
 	List<OrderData> findByCustomerId(int id);
 	
 	boolean insertProduct(OrderData order);
-	boolean updateProduct(OrderData order);
-	boolean deleteProduct(OrderData order);
+	boolean updateProduct(int id,OrderData order);
+	boolean deleteProduct(int id);
 
 }
