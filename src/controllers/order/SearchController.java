@@ -1,9 +1,11 @@
 package controllers.order;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import DAO.OrderDao;
+import dataClasess.OrderData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +17,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class SearchController implements Initializable {
+
+	private OrderDao orderDao = new OrderDao();
+	private OrderController orderController;
 
 	@FXML
 	private AnchorPane mainAnchorPane;
@@ -85,24 +90,38 @@ public class SearchController implements Initializable {
 			public void handle(ActionEvent arg0) {
 
 				infoLabel.setText("");
-				
+
 				if (isTextFieldEmpty()) {
 
 					if (orderNumberCheckBox.isSelected()) {
 
 						if (isNumber()) {
 
-							System.out.println("id");
+							List<OrderData> list = orderDao.findById(Integer.parseInt(searchTextField.getText()));
 
-						}else {
-							
+							if (list.size() == 0) {
+
+								infoLabel.setText(
+										"Nie znaleziono ¿adnego zamówienia o numerze: " + searchTextField.getText());
+
+							} else {
+
+								orderController.hideAllMinorPanes();
+								orderController.getOrderTableController().displayTable(true);
+
+								orderController.getOrderTableController().displayOrdersList(list);
+
+							}
+
+						} else {
+
 							infoLabel.setText("Muszisz podaæ liczbê.");
-							
+
 						}
 
 					} else if (customerIdCheckBox.isSelected()) {
 
-						System.out.println("klient");
+						orderDao.findByCustomerId(Integer.parseInt(searchTextField.getText()));
 
 					} else {
 
@@ -135,16 +154,20 @@ public class SearchController implements Initializable {
 	private boolean isNumber() {
 
 		String text = searchTextField.getText();
-		
-		for(int i = 0;i<text.length();i++) {
-		
-			if(!text.substring(i,i+1).matches("[0-9]")) {
+
+		for (int i = 0; i < text.length(); i++) {
+
+			if (!text.substring(i, i + 1).matches("[0-9]")) {
 				return false;
 			}
-			
+
 		}
-		
+
 		return true;
+	}
+
+	public void setMainOrderController(OrderController orderController) {
+		this.orderController = orderController;
 	}
 
 }

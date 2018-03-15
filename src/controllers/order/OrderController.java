@@ -59,6 +59,9 @@ public class OrderController implements Initializable {
 		orderTableController.displayTable(true);
 
 		setButtonsEvetns();
+		
+		searchOrderController.setMainOrderController(this);
+		
 	}
 
 	public void displayPane(boolean display) {
@@ -67,7 +70,7 @@ public class OrderController implements Initializable {
 
 	}
 
-	private void hideAllMinorPanes() {
+	public void hideAllMinorPanes() {
 
 		orderTableController.displayTable(false);
 		newOrderController.displayPane(false);
@@ -185,6 +188,14 @@ public class OrderController implements Initializable {
 			}
 		});
 
+	}
+
+	public TableViewController getOrderTableController() {
+		return orderTableController;
+	}
+
+	public void setOrderTableController(TableViewController orderTableController) {
+		this.orderTableController = orderTableController;
 	}
 
 }
