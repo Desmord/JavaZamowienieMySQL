@@ -121,7 +121,21 @@ public class SearchController implements Initializable {
 
 					} else if (customerIdCheckBox.isSelected()) {
 
-						orderDao.findByCustomerId(Integer.parseInt(searchTextField.getText()));
+						List<OrderData> list = orderDao.findByCustomerId(Integer.parseInt(searchTextField.getText()));
+
+						if (list.size() == 0) {
+
+							infoLabel.setText(
+									"Nie znaleziono ¿adnego zamówienia z podanym kliencie: " + searchTextField.getText());
+
+						} else {
+
+							orderController.hideAllMinorPanes();
+							orderController.getOrderTableController().displayTable(true);
+
+							orderController.getOrderTableController().displayOrdersList(list);
+
+						}
 
 					} else {
 

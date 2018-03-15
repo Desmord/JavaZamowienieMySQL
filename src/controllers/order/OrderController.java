@@ -98,6 +98,8 @@ public class OrderController implements Initializable {
 
 				hideAllMinorPanes();
 				orderTableController.displayTable(true);
+				
+				orderTableController.displayOrdersList(orderDao.findAll());
 
 			}
 		});
