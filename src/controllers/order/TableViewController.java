@@ -63,4 +63,12 @@ public class TableViewController implements Initializable {
 
 	}
 
+	public TableView<OrderData> getOrderTableView() {
+		return orderTableView;
+	}
+
+	public void setOrderTableView(TableView<OrderData> orderTableView) {
+		this.orderTableView = orderTableView;
+	}
+
 }

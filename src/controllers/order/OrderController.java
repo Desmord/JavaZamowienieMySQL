@@ -1,7 +1,7 @@
 package controllers.order;
 
 import java.net.URL;
-import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import DAO.OrderDao;
@@ -10,7 +10,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -59,9 +62,9 @@ public class OrderController implements Initializable {
 		orderTableController.displayTable(true);
 
 		setButtonsEvetns();
-		
+
 		searchOrderController.setMainOrderController(this);
-		
+
 	}
 
 	public void displayPane(boolean display) {
@@ -96,9 +99,11 @@ public class OrderController implements Initializable {
 			@Override
 			public void handle(ActionEvent arg0) {
 
+				infoLabel.setText("");
+
 				hideAllMinorPanes();
 				orderTableController.displayTable(true);
-				
+
 				orderTableController.displayOrdersList(orderDao.findAll());
 
 			}
@@ -112,6 +117,8 @@ public class OrderController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent arg0) {
+
+				infoLabel.setText("");
 
 				hideAllMinorPanes();
 				searchOrderController.displayPane(true);
@@ -127,6 +134,8 @@ public class OrderController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent arg0) {
+
+				infoLabel.setText("");
 
 				hideAllMinorPanes();
 				newOrderController.displayPane(true);
@@ -158,35 +167,39 @@ public class OrderController implements Initializable {
 			@Override
 			public void handle(ActionEvent arg0) {
 
-				System.out.println("Usuwanie");
+				infoLabel.setText("");
 
-				List<OrderData> list = orderDao.findByCustomerId(2);
+				try {
 
-				if (list.size() == 0) {
-					infoLabel.setText("Nie znaleziono ¿andnych elementów.");
+					OrderData order = orderTableController.getOrderTableView().getSelectionModel().getSelectedItem();
 
-				} else {
-					infoLabel.setText("");
+					Alert alert = new Alert(AlertType.CONFIRMATION);
+					alert.setContentText("Chcesz usun¹æ zamówienie o numerze: " + order.getId());
+					alert.setTitle("Usuwanie zamówienia");
+					alert.setHeaderText(null);
+					
+					ButtonType buttonTypeOne = new ButtonType("Tak");
+					ButtonType buttonTypeTwo = new ButtonType("Nie");
+					
+					alert.getButtonTypes().setAll(buttonTypeOne,buttonTypeTwo);
+					
+					Optional<ButtonType> result = alert.showAndWait();
+					
+					if (result.get() == buttonTypeOne){
 
-					// Wyszukianie wszystkich
-					// orderTableController.displayOrdersList(orderDao.findAll());
+						orderDao.deleteProduct(order.getId());
+						
+						infoLabel.setText("Zamowienie o numerze: "+order.getId()+" usuniêto poprawnie.");
+						
+						orderTableController.displayOrdersList(orderDao.findAll());
+					}
 
-					// Wyszukiwanie po id
-					// orderTableController.displayOrdersList(orderDao.findById(2));
+				} catch (NullPointerException e) {
 
-					// Wyszukiwanie po idKlienta
-					// orderTableController.displayOrdersList(findByCustomerId(2));
-
-					// Wstawianie danych
-					// orderDao.insertProduct(new OrderData(4,2,0,"0"));
-
-					// Uaktualnianie danych
-					// orderDao.updateProduct(4, new OrderData(4,1,0,"0"));
-
-					// Usuwanie danych
-					// orderDao.deleteProduct(3);
+					infoLabel.setText("Nie zaznaczono ¿adnego elementu.");
 
 				}
+
 			}
 		});
 
