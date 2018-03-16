@@ -60,8 +60,8 @@ public class OrderDao implements Order {
 	@Override
 	public boolean deleteProduct(int id) {
 
-		return executeQuery("DELETE FROM `zamowienia` WHERE id = "+id);
-		
+		return executeQuery("DELETE FROM `zamowienia` WHERE id = " + id);
+
 	}
 
 	private boolean executeQuery(String sqlStatement) {
@@ -69,7 +69,7 @@ public class OrderDao implements Order {
 		try {
 
 			Class.forName(ApplicationData.getDriver());
-			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), "root", null);
+			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(),ApplicationData.getUser(), ApplicationData.getPassword());
 
 			Statement statement = conn.createStatement();
 			final String sqlQuery = sqlStatement;
@@ -108,7 +108,7 @@ public class OrderDao implements Order {
 		try {
 
 			Class.forName(ApplicationData.getDriver());
-			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), "root", null);
+			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), ApplicationData.getUser(), ApplicationData.getPassword());
 
 			Statement statement = conn.createStatement();
 			final String sqlQuery = sqlStatement;
@@ -144,6 +144,47 @@ public class OrderDao implements Order {
 		}
 
 		return orderList;
+	}
+
+	public List<Integer> getAllId() {
+
+		List<Integer> idList = new ArrayList<Integer>();
+
+		try {
+
+			Class.forName(ApplicationData.getDriver());
+			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), ApplicationData.getUser(), ApplicationData.getPassword());
+
+			Statement statement = conn.createStatement();
+			final String sqlQuery = "SELECT `id` FROM `zamowienia`";
+			ResultSet resultSet = statement.executeQuery(sqlQuery);
+			
+			while(resultSet.next()) {
+				
+				idList.add(Integer.parseInt(resultSet.getString(1)));
+			
+			}
+
+			if (statement != null) {
+				statement.close();
+			}
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+
+		} catch (SQLException e) {
+
+			System.out.println("Blad sql");
+			System.out.println(e);
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return idList;
 	}
 
 }

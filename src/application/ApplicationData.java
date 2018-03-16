@@ -6,8 +6,8 @@ public class ApplicationData {
 	
 	private final static String DRIVER = "com.mysql.jdbc.Driver";
 	private final static String DB_PATH = "jdbc:mysql://localhost:3307/zamowienia";
-	private final static String USER = "sklepikarz";
-	private final static String PASSWORD = "haselko";
+	private final static String USER = "root";
+	private final static String PASSWORD = "";
 	
 	private static boolean isOrderLoaded = false;
 	private static boolean isCustomerLoaded = false;
