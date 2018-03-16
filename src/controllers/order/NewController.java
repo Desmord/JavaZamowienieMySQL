@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import DAO.OrderDao;
+import dataClasess.OrderData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -54,8 +55,28 @@ public class NewController implements Initializable {
 			@Override
 			public void handle(ActionEvent arg0) {
 
-				System.out.println(getFreeIndex());
+				if (discountTextField.getText().equals("") || customerNameTextField.getText().equals("")) {
 
+					infoLabel.setText("Nie wprowadzono wszystkich danych.");
+					
+				} else {
+
+					if (isNumber(discountTextField)) {
+
+						OrderData order = new OrderData(getFreeIndex(),
+								Integer.parseInt(customerNameTextField.getText()),
+								Integer.parseInt(discountTextField.getText()), 0 + "");
+
+						orderDao.insertProduct(order);
+
+						infoLabel.setText("Dodawanie przebieg³o poprawnie.");
+
+					} else {
+
+						infoLabel.setText("Rabat musi byæ liczb¹");
+
+					}
+				}
 			}
 		});
 
@@ -75,6 +96,21 @@ public class NewController implements Initializable {
 		}
 
 		return lista.size() + 1;
+	}
+
+	private boolean isNumber(TextField field) {
+
+		String text = field.getText();
+
+		for (int i = 0; i < text.length(); i++) {
+
+			if (!text.substring(i, i + 1).matches("[0-9]")) {
+				return false;
+			}
+
+		}
+
+		return true;
 	}
 
 }
