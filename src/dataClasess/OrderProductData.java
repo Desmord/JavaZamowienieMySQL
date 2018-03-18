@@ -1,12 +1,12 @@
 package dataClasess;
 
-public class OrderProduct {
+public class OrderProductData {
 
 	private int orderId;
 	private int productId;
 	private int amount;
 
-	public OrderProduct(int orderId, int productId, int amount) {
+	public OrderProductData(int orderId, int productId, int amount) {
 		super();
 		this.orderId = orderId;
 		this.productId = productId;

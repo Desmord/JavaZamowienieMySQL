@@ -10,9 +10,9 @@
 	<children>
 		<VBox prefHeight="720.0" prefWidth="1100.0">
 			<children>
-				<AnchorPane prefHeight="100.0" prefWidth="1100.0">
+				<AnchorPane prefHeight="70.0" prefWidth="1100.0">
 					<children>
-						<HBox prefHeight="100.0" prefWidth="1100.0">
+						<HBox prefHeight="70.0" prefWidth="1100.0">
 							<children>
 								<Button fx:id="orderButton" mnemonicParsing="false" prefWidth="100.0" text="Zamówienia">
 									<HBox.margin>
@@ -42,10 +42,10 @@
 					<VBox.margin>
 						<Insets top="20.0" />
 					</VBox.margin>
-					<fx:include fx:id="orderPane" source="OrderPane.fxml" />
-					<fx:include fx:id="categoryPane" source="CategoryPane.fxml" />
-					<fx:include fx:id="customerPane" source="CustomerPane.fxml" />
-					<fx:include fx:id="productPane" source="ProductPane.fxml" />
+					<fx:include fx:id="orderPane" source="Order/OrderPane.fxml" />
+					<fx:include fx:id="categoryPane" source="Category/CategoryPane.fxml" />
+					<fx:include fx:id="customerPane" source="Customer/CustomerPane.fxml" />
+					<fx:include fx:id="productPane" source="Product/ProductPane.fxml" />
 				</AnchorPane>
 			</children>
 		</VBox>

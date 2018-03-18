@@ -2,14 +2,16 @@ package interfaces;
 
 import java.util.List;
 
+import dataClasess.ProductData;
+
 public interface Product {
 
-	List<Product> findAll();
-	List<Product> findById();
-	List<Product> findByName();
+	List<ProductData> findAll();
+	List<ProductData> findById();
+	List<ProductData> findByName();
 	
-	boolean insertProduct(Product product);
-	boolean updateProduct(Product product);
-	boolean deleteProduct(Product producr);
+	boolean insertProduct(ProductData product);
+	boolean updateProduct(ProductData product);
+	boolean deleteProduct(ProductData producr);
 
 }

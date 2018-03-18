@@ -2,6 +2,7 @@ package DAO;
 
 import java.util.List;
 
+import dataClasess.CustomerData;
 import interfaces.Customer;
 
 public class CustomerDao implements Customer {
@@ -9,49 +10,49 @@ public class CustomerDao implements Customer {
 	List<Customer> customers;
 	
 	@Override
-	public List<Customer> findAll() {
+	public List<CustomerData> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Customer> findById() {
+	public List<CustomerData> findById() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Customer> findByFirstName() {
+	public List<CustomerData> findByFirstName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Customer> findByLastName() {
+	public List<CustomerData> findByLastName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Customer> findByTel() {
+	public List<CustomerData> findByTel() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean insertProduct(Customer customer) {
+	public boolean insertProduct(CustomerData customer) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateProduct(Customer customer) {
+	public boolean updateProduct(CustomerData customer) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteProduct(Customer customer) {
+	public boolean deleteProduct(CustomerData customer) {
 		// TODO Auto-generated method stub
 		return false;
 	}

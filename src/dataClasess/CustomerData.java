@@ -1,6 +1,6 @@
 package dataClasess;
 
-public class Customer {
+public class CustomerData {
 
 	private int id;
 	private String firstName;
@@ -8,7 +8,7 @@ public class Customer {
 	private int tel;
 	private int discount;
 
-	public Customer(int id, String firstName, String lastName, int tel, int discount) {
+	public CustomerData(int id, String firstName, String lastName, int tel, int discount) {
 		super();
 		this.id = id;
 		this.firstName = firstName;

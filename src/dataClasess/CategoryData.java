@@ -1,11 +1,11 @@
 package dataClasess;
 
-public class Category {
+public class CategoryData {
 
 	private int id;
 	private String name;
 
-	public Category(int id, String name) {
+	public CategoryData(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
