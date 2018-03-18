@@ -152,8 +152,27 @@ public class OrderController implements Initializable {
 			@Override
 			public void handle(ActionEvent arg0) {
 
-				hideAllMinorPanes();
-				editOrderController.displayPane(true);
+				try {
+
+					OrderData order = orderTableController.getOrderTableView().getSelectionModel().getSelectedItem();
+
+					if (order != null) {
+
+						editOrderController.setOrder(order);
+						editOrderController.setOrderData();
+						
+						infoLabel.setText("");
+						
+						hideAllMinorPanes();
+						editOrderController.displayPane(true);
+
+					} else {
+						infoLabel.setText("Nie zaznaczono ¿adnego elementu.");
+					}
+
+				} catch (NullPointerException e) {
+					infoLabel.setText("Nie zaznaczono ¿adnego elementu.");
+				}
 
 			}
 		});
@@ -177,20 +196,20 @@ public class OrderController implements Initializable {
 					alert.setContentText("Chcesz usun¹æ zamówienie o numerze: " + order.getId());
 					alert.setTitle("Usuwanie zamówienia");
 					alert.setHeaderText(null);
-					
+
 					ButtonType buttonTypeOne = new ButtonType("Tak");
 					ButtonType buttonTypeTwo = new ButtonType("Nie");
-					
-					alert.getButtonTypes().setAll(buttonTypeOne,buttonTypeTwo);
-					
+
+					alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
 					Optional<ButtonType> result = alert.showAndWait();
-					
-					if (result.get() == buttonTypeOne){
+
+					if (result.get() == buttonTypeOne) {
 
 						orderDao.deleteProduct(order.getId());
-						
-						infoLabel.setText("Zamowienie o numerze: "+order.getId()+" usuniêto poprawnie.");
-						
+
+						infoLabel.setText("Zamowienie o numerze: " + order.getId() + " usuniêto poprawnie.");
+
 						orderTableController.displayOrdersList(orderDao.findAll());
 					}
 
