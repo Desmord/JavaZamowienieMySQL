@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="580.0"
+	prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1"
+	fx:controller="controllers.category.EditController">
+	<children>
+		<Label text="edycja" />
+	</children>
+</AnchorPane>

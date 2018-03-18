@@ -3,6 +3,7 @@ package controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controllers.category.CategoryController;
 import controllers.order.OrderController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

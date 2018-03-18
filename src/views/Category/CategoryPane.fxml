@@ -3,8 +3,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="categoryPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CategoryController">
-   <children>
-      <Label text="Kategoria" />
-   </children>
+<AnchorPane fx:id="categoryPane" xmlns="http://javafx.com/javafx/9.0.1"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.category.CategoryController">
+	<children>
+		<fx:include fx:id="editCategory" source="EditCategoryPane.fxml" />
+		<fx:include fx:id="searchCategory" source="SearchCategoryPane.fxml" />
+		<fx:include fx:id="newCategory" source="NewCategoryPane.fxml" />
+		<fx:include fx:id="tableCategory" source="CategoryTable.fxml" />
+	</children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.category;
 
 import java.net.URL;
 import java.util.ResourceBundle;
