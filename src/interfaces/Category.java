@@ -7,11 +7,11 @@ import dataClasess.CategoryData;
 public interface Category {
 
 	List<CategoryData> findAll();
-	List<CategoryData> findById();
-	List<CategoryData> findByName();
+	List<CategoryData> findById(int id);
+	List<CategoryData> findByName(String name);
 	
-	boolean insertProduct(CategoryData category);
-	boolean updateProduct(CategoryData category);
-	boolean deleteProduct(CategoryData category);
+	boolean insertCategory(CategoryData category);
+	boolean updateCategory(int id,CategoryData category);
+	boolean deleteCategory(int id);
 	
 }

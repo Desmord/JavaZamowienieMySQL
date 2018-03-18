@@ -16,31 +16,31 @@ public class CategoryDao implements Category {
 	}
 
 	@Override
-	public List<CategoryData> findById() {
+	public List<CategoryData> findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<CategoryData> findByName() {
+	public List<CategoryData> findByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean insertProduct(CategoryData category) {
+	public boolean insertCategory(CategoryData category) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateProduct(CategoryData category) {
+	public boolean updateCategory(int id,CategoryData category) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteProduct(CategoryData category) {
+	public boolean deleteCategory(int id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
