@@ -28,7 +28,7 @@
                         <Insets left="200.0" right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefWidth="350.0" />
+                  <TextField fx:id="customerTextField" prefWidth="350.0" />
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="900.0">
@@ -41,7 +41,7 @@
                         <Insets left="200.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefWidth="150.0">
+                  <TextField fx:id="discountTextField" prefWidth="150.0">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -50,11 +50,11 @@
             </HBox>
             <HBox prefHeight="380.0" prefWidth="900.0">
                <children>
-                  <TableView prefHeight="200.0" prefWidth="550.0">
+                  <TableView fx:id="productTableView" prefHeight="200.0" prefWidth="550.0">
                     <columns>
-                      <TableColumn prefWidth="300.0" text="Nazwa" />
-                        <TableColumn prefWidth="100.0" text="Ilość" />
-                        <TableColumn prefWidth="150.0" text="Cena" />
+                      <TableColumn fx:id="nameTableCell" prefWidth="300.0" text="Nazwa" />
+                        <TableColumn fx:id="amountTableCell" prefWidth="100.0" text="Ilość" />
+                        <TableColumn fx:id="priceTableCell" prefWidth="150.0" text="Cena" />
                     </columns>
                      <HBox.margin>
                         <Insets left="25.0" />
@@ -65,12 +65,12 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                      <children>
-                        <Button mnemonicParsing="false" prefWidth="100.0" text="Dodaj produkt">
+                        <Button fx:id="addProductButton" mnemonicParsing="false" prefWidth="100.0" text="Dodaj produkt">
                            <VBox.margin>
                               <Insets left="50.0" top="70.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefWidth="100.0" text="Usuń produkt">
+                        <Button fx:id="removeProductButton" mnemonicParsing="false" prefWidth="100.0" text="Usuń produkt">
                            <VBox.margin>
                               <Insets left="50.0" top="30.0" />
                            </VBox.margin>
@@ -79,12 +79,12 @@
                   </VBox>
                </children>
             </HBox>
-            <Label prefWidth="400.0" text="Label">
+            <Label fx:id="infoLabel" prefWidth="400.0" text="Label">
                <VBox.margin>
                   <Insets left="250.0" top="20.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Zapisz">
+            <Button fx:id="saveButton" mnemonicParsing="false" prefWidth="100.0" text="Zapisz">
                <VBox.margin>
                   <Insets left="400.0" top="10.0" />
                </VBox.margin>
