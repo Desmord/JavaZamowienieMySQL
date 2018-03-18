@@ -18,32 +18,32 @@
 			</AnchorPane>
 			<VBox prefHeight="550.0" prefWidth="160.0">
             <children>
-               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Pokaż Wszystkie">
+               <Button fx:id="showCategoryButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Pokaż Wszystkie">
                   <VBox.margin>
                      <Insets left="20.0" top="40.0" />
                   </VBox.margin>
                </Button>
-               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Wyszukaj">
+               <Button fx:id="searchCategoryButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Wyszukaj">
                   <VBox.margin>
                      <Insets left="30.0" top="40.0" />
                   </VBox.margin>
                </Button>
-               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Dodaj">
+               <Button fx:id="addCategoryButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Dodaj">
                   <VBox.margin>
                      <Insets left="30.0" top="15.0" />
                   </VBox.margin>
                </Button>
-               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Edytuj">
+               <Button fx:id="editCategoryButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Edytuj">
                   <VBox.margin>
                      <Insets left="30.0" top="15.0" />
                   </VBox.margin>
                </Button>
-               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Usuń">
+               <Button fx:id="removeCategoryButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Usuń">
                   <VBox.margin>
                      <Insets left="30.0" top="15.0" />
                   </VBox.margin>
                </Button>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="150.0" textAlignment="CENTER" textFill="#ae2020" wrapText="true">
+               <Label fx:id="infoLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="150.0" textAlignment="CENTER" textFill="#ae2020" wrapText="true">
                   <VBox.margin>
                      <Insets left="5.0" top="20.0" />
                   </VBox.margin>
