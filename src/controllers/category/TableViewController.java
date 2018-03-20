@@ -61,5 +61,13 @@ public class TableViewController implements Initializable  {
 
 		mainTableView.setItems(data);
 	}
+
+	public TableView<CategoryData> getMainTableView() {
+		return mainTableView;
+	}
+
+	public void setMainTableView(TableView<CategoryData> mainTableView) {
+		this.mainTableView = mainTableView;
+	}
 	
 }
