@@ -1,13 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="mainAnchorPane" prefHeight="580.0"
-	prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1"
-	fx:controller="controllers.category.SearchController">
-	<children>
-		<Label text="szukaj" />
-	</children>
+<AnchorPane fx:id="mainAnchorPane" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.category.SearchController">
+   <children>
+      <VBox prefHeight="580.0" prefWidth="900.0">
+         <children>
+            <Label prefWidth="100.0" text="Wyszukaj po:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="400.0" top="40.0" />
+               </VBox.margin>
+            </Label>
+            <CheckBox fx:id="idCheckBox" mnemonicParsing="false" prefWidth="100.0" text="Id">
+               <VBox.margin>
+                  <Insets left="375.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="nameCheckBox" mnemonicParsing="false" text="Nazwa">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="375.0" top="15.0" />
+               </VBox.margin>
+            </CheckBox>
+            <TextField fx:id="searchTextField" prefWidth="250.0">
+               <VBox.margin>
+                  <Insets left="250.0" right="250.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Wyszukaj">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="400.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="infoLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="400.0" textFill="#c91a1a" wrapText="true">
+               <VBox.margin>
+                  <Insets left="250.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

@@ -56,6 +56,7 @@ public class CategoryController implements Initializable {
 		hideAllMinorPanes();
 		tableCategoryController.displayPane(true);
 		setButtonsEvetns();
+		searchCategoryController.setMainCateogryController(this);
 	}
 
 	public void displayPane(boolean display) {
@@ -163,6 +164,14 @@ public class CategoryController implements Initializable {
 				searchCategoryController.displayPane(true);
 			}
 		});
+	}
+
+	public TableViewController getTableCategoryController() {
+		return tableCategoryController;
+	}
+
+	public void setTableCategoryController(TableViewController tableCategoryController) {
+		this.tableCategoryController = tableCategoryController;
 	}
 
 }
