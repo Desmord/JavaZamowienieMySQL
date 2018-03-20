@@ -113,7 +113,13 @@ public class CategoryController implements Initializable {
 		showCategoryButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
-			public void handle(ActionEvent arg0) {
+			public void handle(ActionEvent arg0) {				
+				infoLabel.setText("");				
+				hideAllMinorPanes();
+				
+				tableCategoryController.displayPane(true);				
+				tableCategoryController.displayOrdersList(categoryDao.findAll());
+
 				
 //				List<CategoryData> lista = categoryDao.findAll();
 //		
