@@ -1,9 +1,11 @@
 package controllers.category;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import DAO.CategoryDao;
+import dataClasess.CategoryData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -112,7 +114,36 @@ public class CategoryController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				System.out.println("pokaz wszystkie");
+				
+//				List<CategoryData> lista = categoryDao.findAll();
+//		
+//				for(CategoryData cat: lista) {
+//					System.out.println(cat.getId()+" nazwa: "+cat.getName());
+//				}
+				
+//				List<CategoryData> lista = categoryDao.findById(6);
+//		
+//				for(CategoryData cat: lista) {
+//					System.out.println(cat.getId()+" nazwa: "+cat.getName());
+//				}
+//				
+//				List<CategoryData> lista = categoryDao.findByName("Owoc");
+//		
+//				for(CategoryData cat: lista) {
+//					System.out.println(cat.getId()+" nazwa: "+cat.getName());
+//				}
+				
+//				CategoryData obj = new CategoryData(6,"cosik2");
+				
+//				System.out.println(categoryDao.insertCategory(obj));
+//				System.out.println(categoryDao.updateCategory(6, obj));
+//				System.out.println(categoryDao.deleteCategory(6));
+//				
+//				List<Integer> lisa = categoryDao.getAllId();
+//				
+//				for(int f: lisa) {
+//					System.out.println(f);
+//				}
 			}
 		});
 	}
