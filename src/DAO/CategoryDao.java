@@ -41,7 +41,7 @@ public class CategoryDao implements Category {
 	}
 
 	@Override
-	public boolean updateCategory(int id, CategoryData category) {
+	public boolean updateCategory(CategoryData category) {
 		return executeQuery("UPDATE `kategoria_produktu` SET `id`=" + category.getId() + ",`nazwa`='"
 				+ category.getName() + "' WHERE id = " + category.getId());
 	}

@@ -11,7 +11,7 @@ public interface Category {
 	List<CategoryData> findByName(String name);
 	
 	boolean insertCategory(CategoryData category);
-	boolean updateCategory(int id,CategoryData category);
+	boolean updateCategory(CategoryData category);
 	boolean deleteCategory(int id);
 	
 }

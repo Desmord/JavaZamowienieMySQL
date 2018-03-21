@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane fx:id="mainAnchorPane" prefHeight="580.0"
-	prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1"
-	fx:controller="controllers.category.EditController">
-	<children>
-		<Label text="edycja" />
-	</children>
+<AnchorPane fx:id="mainAnchorPane" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.category.EditController">
+   <children>
+      <VBox prefHeight="580.0" prefWidth="900.0">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="900.0">
+               <children>
+                  <Label prefWidth="130.0" text="Edytuj nazwę kategorii">
+                     <HBox.margin>
+                        <Insets left="215.0" top="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="editTextField" prefWidth="350.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="saveButton" mnemonicParsing="false" prefWidth="100.0" text="Zapisz">
+               <VBox.margin>
+                  <Insets left="400.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="infoLabel" alignment="CENTER" prefHeight="200.0" prefWidth="400.0" textAlignment="CENTER" textFill="#ab1a1a" wrapText="true">
+               <VBox.margin>
+                  <Insets left="250.0" top="30.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

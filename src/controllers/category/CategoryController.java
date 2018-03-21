@@ -126,9 +126,24 @@ public class CategoryController implements Initializable {
 		editCategoryButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
-			public void handle(ActionEvent arg0) {
-				hideAllMinorPanes();
-				editCategoryController.displayPane(true);
+			public void handle(ActionEvent arg0) {			
+				try {
+					CategoryData category = tableCategoryController.getMainTableView().getSelectionModel().getSelectedItem();
+					
+					if (category != null) {
+						editCategoryController.setCategory(category);
+						editCategoryController.setCategoryData();
+	
+						infoLabel.setText("");
+						
+						hideAllMinorPanes();
+						editCategoryController.displayPane(true);;
+					} else {
+						infoLabel.setText("Nie zaznaczono ¿adnego elementu.");
+					}
+				} catch (NullPointerException e) {
+					infoLabel.setText("Nie zaznaczono ¿adnego elementu.");
+				}
 			}
 		});
 	}
