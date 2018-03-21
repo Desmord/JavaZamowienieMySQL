@@ -1,9 +1,11 @@
 package controllers.product;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import DAO.ProductDao;
+import dataClasess.ProductData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -86,9 +88,11 @@ public class ProductController implements Initializable {
 			public void handle(ActionEvent arg0) {
 
 
+				List<ProductData> lista = productDao.findByName("Gruszka");
 				
-				
-				
+				for(ProductData i: lista) {
+					System.out.println(i.getId());
+				}
 				
 			}
 		});

@@ -11,7 +11,6 @@ import java.util.List;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import application.ApplicationData;
-import dataClasess.OrderData;
 import dataClasess.ProductData;
 import interfaces.Product;
 
@@ -21,26 +20,22 @@ public class ProductDao implements Product {
 
 	@Override
 	public List<ProductData> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return getDataBaseData("SELECT * FROM produkt");
 	}
 
 	@Override
-	public List<ProductData> findById() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ProductData> findById(int id) {
+		return getDataBaseData("SELECT * FROM produkt WHERE id = " + id);
 	}
 
 	@Override
-	public List<ProductData> findByName() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ProductData> findByName(String name) {
+		return getDataBaseData("SELECT * FROM produkt WHERE nazwa = '" + name+"'");
 	}
 
 	@Override
 	public boolean insertProduct(ProductData product) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
