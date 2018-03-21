@@ -4,8 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
-   <children>
-      <Label text="Szukanie" />
-   </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1"
+	fx:controller="controllers.product.SearchController">
+	<children>
+		<Label text="Szukanie" />
+	</children>
 </AnchorPane>

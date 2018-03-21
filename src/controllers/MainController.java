@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import controllers.category.CategoryController;
 import controllers.order.OrderController;
+import controllers.product.ProductController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
