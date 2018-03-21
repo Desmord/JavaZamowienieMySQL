@@ -84,8 +84,12 @@ public class ProductController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				System.out.println("usuwanie");
+
+
+				
+				
+				
+				
 			}
 		});
 	}
