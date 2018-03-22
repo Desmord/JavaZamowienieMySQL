@@ -12,6 +12,6 @@ public interface Product {
 	
 	boolean insertProduct(ProductData product);
 	boolean updateProduct(ProductData product);
-	boolean deleteProduct(ProductData producr);
+	boolean deleteProduct(int id);
 
 }

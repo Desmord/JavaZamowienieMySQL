@@ -88,11 +88,19 @@ public class ProductController implements Initializable {
 			public void handle(ActionEvent arg0) {
 
 
-				List<ProductData> lista = productDao.findByName("Gruszka");
+//				List<ProductData> lista = productDao.findByName("Gruszka");
+//				
+//				for(ProductData i: lista) {
+//					System.out.println(i.getId());
+//				}
 				
-				for(ProductData i: lista) {
-					System.out.println(i.getId());
-				}
+//				ProductData productProbny = new ProductData(16,"proasfasfba","100",10,"5",4);
+				
+//				productDao.insertProduct(productProbny);
+				
+//				productDao.updateProduct(productProbny);
+				
+//				productDao.deleteProduct(16);
 				
 			}
 		});

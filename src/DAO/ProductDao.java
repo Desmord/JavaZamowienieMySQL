@@ -30,32 +30,37 @@ public class ProductDao implements Product {
 
 	@Override
 	public List<ProductData> findByName(String name) {
-		return getDataBaseData("SELECT * FROM produkt WHERE nazwa = '" + name+"'");
+		return getDataBaseData("SELECT * FROM produkt WHERE nazwa = '" + name + "'");
 	}
 
 	@Override
 	public boolean insertProduct(ProductData product) {
-		return true;
+		return executeQuery(
+				"INSERT INTO `produkt`(`id`, `nazwa`, `cena`, `stan_Ilosci`, `rabat`, `id_Kategori`) VALUES ("
+						+ product.getId() + ",'" + product.getName() + "','" + product.getPrice() + "',"
+						+ product.getQuantity() + ",'" + product.getDiscount() + "'," + product.getCategoryId() + ")");
 	}
 
 	@Override
 	public boolean updateProduct(ProductData product) {
-		// TODO Auto-generated method stub
-		return false;
+		return executeQuery("UPDATE `produkt` SET `id`=" + product.getId() + ",`nazwa`='" + product.getName()
+				+ "',`cena`='" + product.getPrice() + "',`stan_Ilosci`=" + product.getQuantity() + ",`rabat`='"
+				+ product.getDiscount() + "',`id_Kategori`=" + product.getCategoryId() + " WHERE id = "
+				+ product.getId());
 	}
 
 	@Override
-	public boolean deleteProduct(ProductData producr) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteProduct(int id) {
+		return executeQuery("DELETE FROM `produkt` WHERE id = "+id);
 	}
-	
+
 	private boolean executeQuery(String sqlStatement) {
 
 		try {
 
 			Class.forName(ApplicationData.getDriver());
-			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(),ApplicationData.getUser(), ApplicationData.getPassword());
+			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), ApplicationData.getUser(),
+					ApplicationData.getPassword());
 
 			Statement statement = conn.createStatement();
 			final String sqlQuery = sqlStatement;
@@ -130,7 +135,7 @@ public class ProductDao implements Product {
 
 		return productList;
 	}
-	
+
 	public List<Integer> getAllId() {
 
 		List<Integer> idList = new ArrayList<Integer>();
@@ -138,16 +143,17 @@ public class ProductDao implements Product {
 		try {
 
 			Class.forName(ApplicationData.getDriver());
-			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), ApplicationData.getUser(), ApplicationData.getPassword());
+			Connection conn = DriverManager.getConnection(ApplicationData.getDbPath(), ApplicationData.getUser(),
+					ApplicationData.getPassword());
 
 			Statement statement = conn.createStatement();
 			final String sqlQuery = "SELECT `id` FROM `produkt`";
 			ResultSet resultSet = statement.executeQuery(sqlQuery);
-			
-			while(resultSet.next()) {
-				
+
+			while (resultSet.next()) {
+
 				idList.add(Integer.parseInt(resultSet.getString(1)));
-			
+
 			}
 
 			if (statement != null) {
