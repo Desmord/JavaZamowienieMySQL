@@ -33,6 +33,11 @@ public class CategoryDao implements Category {
 	public List<CategoryData> findByName(String name) {
 		return getDataBaseData("Select * FROM kategoria_produktu where nazwa = '" + name + "'");
 	}
+	
+	public String getCategoryName(int id) {		
+		List<CategoryData> list = getDataBaseData("Select * FROM kategoria_produktu where id = " + id);	
+		return list.get(0).getName();
+	}
 
 	@Override
 	public boolean insertCategory(CategoryData category) {

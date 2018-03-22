@@ -135,6 +135,8 @@ public class ProductController implements Initializable {
 			public void handle(ActionEvent arg0) {
 				hideAllMinorPanes();
 				productTableController.displayPane(true);
+				
+				productTableController.displayOrdersList();
 			}
 		});
 	}
