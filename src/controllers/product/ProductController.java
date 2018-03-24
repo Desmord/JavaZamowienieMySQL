@@ -111,7 +111,7 @@ public class ProductController implements Initializable {
 					if (result.get() == buttonTypeOne) {
 						productDao.deleteProduct(productCategory.getId());
 						
-						infoLabel.setText("Zamówienie o numerze : "+productCategory.getId()+" usuniêto poprawnie.");
+						infoLabel.setText("Produkt o numerze : "+productCategory.getId()+" usuniêto poprawnie.");
 						
 						productTableController.displayOrdersList();
 					}

@@ -5,6 +5,10 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class SearchController implements Initializable {
@@ -12,7 +16,28 @@ public class SearchController implements Initializable {
 	ProductController productController;
 
 	@FXML
-	private AnchorPane mainAnchorPane;
+    private AnchorPane mainAnchorPane;
+
+    @FXML
+    private CheckBox idNumberCheckBox;
+
+    @FXML
+    private CheckBox nameCheckBox;
+
+    @FXML
+    private CheckBox categoryCheckBox;
+
+    @FXML
+    private TextField mainTextField;
+
+    @FXML
+    private Button showCategoryButton;
+
+    @FXML
+    private Button searchButton;
+
+    @FXML
+    private Label infoLabel;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
