@@ -185,4 +185,14 @@ public class ProductController implements Initializable {
 			}
 		});
 	}
+
+	public TableController getProductTableController() {
+		return productTableController;
+	}
+
+	public void setProductTableController(TableController productTableController) {
+		this.productTableController = productTableController;
+	}
+	
+	
 }
