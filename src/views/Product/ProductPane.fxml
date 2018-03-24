@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="productPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductController">
-   <children>
-      <Label text="Zamowienie" />
-   </children>
+<AnchorPane fx:id="productPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.product.ProductController">
+	<children>
+		<HBox prefHeight="580.0" prefWidth="1100.0">
+			<children>
+				<AnchorPane prefHeight="580.0" prefWidth="900.0">
+					<fx:include fx:id="editProduct" source="editProductPane.fxml" />
+					<fx:include fx:id="newProduct" source="newProductPane.fxml" />
+					<fx:include fx:id="productTable" source="productTable.fxml" />
+					<fx:include fx:id="searcProduct" source="searchProductPane.fxml" />
+				</AnchorPane>
+				<AnchorPane prefHeight="580.0" prefWidth="200.0">
+					<children>
+						<VBox prefHeight="570.0" prefWidth="180.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+							<children>
+								<Button fx:id="showAllButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Pokaż Wszystkie">
+									<VBox.margin>
+										<Insets left="20.0" top="40.0" />
+									</VBox.margin>
+								</Button>
+								<Button fx:id="searchButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Wyszukaj">
+									<VBox.margin>
+										<Insets left="30.0" top="40.0" />
+									</VBox.margin>
+								</Button>
+								<Button fx:id="newButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Dodaj">
+									<VBox.margin>
+										<Insets left="30.0" top="15.0" />
+									</VBox.margin>
+								</Button>
+								<Button fx:id="editButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Edytuj">
+									<VBox.margin>
+										<Insets left="30.0" top="15.0" />
+									</VBox.margin>
+								</Button>
+								<Button fx:id="removeButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Usuń">
+									<VBox.margin>
+										<Insets left="30.0" top="15.0" />
+									</VBox.margin>
+								</Button>
+                        <Label fx:id="infoLabel" alignment="CENTER" prefHeight="150.0" prefWidth="150.0" textFill="#c92727" wrapText="true">
+                           <VBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+							</children>
+						</VBox>
+					</children>
+				</AnchorPane>
+			</children>
+		</HBox>
+	</children>
 </AnchorPane>

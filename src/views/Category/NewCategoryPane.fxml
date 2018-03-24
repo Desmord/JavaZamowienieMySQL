@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.category.NewController">
+   <children>
+      <VBox prefHeight="580.0" prefWidth="900.0">
+         <children>
+            <HBox prefWidth="900.0">
+               <children>
+                  <Label prefWidth="150.0" text="Nazwa nowej kategorii:">
+                     <HBox.margin>
+                        <Insets left="225.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="nameCategoryTextField" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets top="3.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="newCategoryButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Dodaj">
+               <VBox.margin>
+                  <Insets left="400.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="infoLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="400.0" textAlignment="CENTER" textFill="#c31919" wrapText="true">
+               <VBox.margin>
+                  <Insets left="250.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
