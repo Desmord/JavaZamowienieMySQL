@@ -18,6 +18,10 @@ public class ProductDao implements Product {
 
 	List<Product> products;
 
+	public List<ProductData> findByCategory(int categoryID) {
+		return getDataBaseData("SELECT * FROM produkt WHERE id_Kategori = " + categoryID);
+	}
+
 	@Override
 	public List<ProductData> findAll() {
 		return getDataBaseData("SELECT * FROM produkt");
@@ -51,7 +55,7 @@ public class ProductDao implements Product {
 
 	@Override
 	public boolean deleteProduct(int id) {
-		return executeQuery("DELETE FROM `produkt` WHERE id = "+id);
+		return executeQuery("DELETE FROM `produkt` WHERE id = " + id);
 	}
 
 	private boolean executeQuery(String sqlStatement) {

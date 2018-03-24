@@ -18,7 +18,7 @@ import interfaces.Category;
 public class CategoryDao implements Category {
 
 	List<Category> categores;
-
+	
 	@Override
 	public List<CategoryData> findAll() {
 		return getDataBaseData("SELECT * FROM kategoria_produktu");

@@ -1,6 +1,7 @@
 package controllers.product;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -41,9 +42,6 @@ public class SearchController implements Initializable {
 	private TextField mainTextField;
 
 	@FXML
-	private Button showCategoryButton;
-
-	@FXML
 	private Button searchButton;
 
 	@FXML
@@ -52,15 +50,13 @@ public class SearchController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		setElementsClickEvents();
-		showCategoryButton.setDisable(true);
 	}
-	
+
 	private void setElementsClickEvents() {
 		setIdNumberChcekBoxClickEvent();
 		setNameCheckBoxClickEvent();
 		setCategoryChcekBoxClickEvent();
 		setSearchButtonClickEvent();
-		setShowCategoryButtonClickEvent();
 	}
 
 	private void setSearchButtonClickEvent() {
@@ -136,25 +132,37 @@ public class SearchController implements Initializable {
 
 				productController.getProductTableController().displayGivenOrdersList(TCTV);
 				productController.hideAllMinorPanes();
-				productController.getProductTableController().displayPane(true);			
+				productController.getProductTableController().displayPane(true);
 			}
 		}
 
 	}
 
 	private void searchCategory() {
-		System.out.println("kategori");
-	}
 
-	private void setShowCategoryButtonClickEvent() {
-		showCategoryButton.setOnAction(new EventHandler<ActionEvent>() {
+		List<CategoryData> categoryList = categoryDao.findByName(mainTextField.getText());
 
-			@Override
-			public void handle(ActionEvent arg0) {
-				System.out.println("pokaz kateogri");
+		if (categoryList.size() == 0) {
+			infoLabel.setText("Nie znaleziono ¿adnej kategori");
+		} else {
+			List<ProductData> productList = productDao.findByCategory(categoryList.get(0).getId());
 
+			if (productList.size() == 0) {
+				infoLabel.setText("Nie znaleziono ¿adnej kategori");
+			} else {
+				List<ProductCategoryTableView> list = new ArrayList<ProductCategoryTableView>();
+
+				for (ProductData obj : productList) {
+					list.add(new ProductCategoryTableView(obj.getId(), obj.getName(), obj.getPrice(), obj.getQuantity(),
+							obj.getDiscount(),categoryList.get(0).getName()));
+				}
+				
+				productController.getProductTableController().displayGivenProductList(list);
+				productController.hideAllMinorPanes();
+				productController.getProductTableController().displayPane(true);
 			}
-		});
+		}
+
 	}
 
 	private void setCategoryChcekBoxClickEvent() {
@@ -164,7 +172,6 @@ public class SearchController implements Initializable {
 			public void handle(ActionEvent arg0) {
 				nameCheckBox.setSelected(false);
 				idNumberCheckBox.setSelected(false);
-				showCategoryButton.setDisable(false);
 			}
 		});
 	}
@@ -176,7 +183,6 @@ public class SearchController implements Initializable {
 			public void handle(ActionEvent arg0) {
 				categoryCheckBox.setSelected(false);
 				idNumberCheckBox.setSelected(false);
-				showCategoryButton.setDisable(true);
 			}
 		});
 	}
@@ -188,7 +194,6 @@ public class SearchController implements Initializable {
 			public void handle(ActionEvent arg0) {
 				nameCheckBox.setSelected(false);
 				categoryCheckBox.setSelected(false);
-				showCategoryButton.setDisable(true);
 			}
 		});
 	}

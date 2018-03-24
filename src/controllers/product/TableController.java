@@ -86,9 +86,29 @@ public class TableController implements Initializable {
 
 	public void displayGivenOrdersList(ProductCategoryTableView list) {
 
+		
+		
 		final ObservableList<ProductCategoryTableView> data = FXCollections.observableArrayList();
 
 		data.add(list);
+
+		idCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("id"));
+		nameCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("name"));
+		priceCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("price"));
+		quantityCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("quantity"));
+		discountCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("discount"));
+		categoryCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("categoryName"));
+
+		mainTableView.setItems(data);
+	}
+	
+	public void displayGivenProductList(List<ProductCategoryTableView> list) {
+
+		final ObservableList<ProductCategoryTableView> data = FXCollections.observableArrayList();
+
+		for(ProductCategoryTableView obj: list) {
+			data.add(obj);
+		}
 
 		idCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("id"));
 		nameCell.setCellValueFactory(new PropertyValueFactory<ProductCategoryTableView, String>("name"));
