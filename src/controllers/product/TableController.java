@@ -84,7 +84,7 @@ public class TableController implements Initializable {
 		mainTableView.setItems(data);
 	}
 
-	public TableView<?> getMainTableView() {
+	public TableView<ProductCategoryTableView> getMainTableView() {
 		return mainTableView;
 	}
 
